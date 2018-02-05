@@ -12,7 +12,7 @@ const persen_turun = -15;
 let status_up_down = false;
 
 let koneksi = false;
-const bot = new Tele('511096125:AAGRmxudBUBOdVh6YzGg0KLFx3jnpLzqNYU',{
+const bot = new Tele('key',{
     tgfancy: {
         feature: true,
     }
