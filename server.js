@@ -1,3 +1,5 @@
+'use strict'
+
 var Pusher = require('pusher-js');
 var Tele = require('tgfancy');
 var fs = require('fs');
