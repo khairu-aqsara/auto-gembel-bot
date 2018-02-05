@@ -1,5 +1,3 @@
-'use strict'
-
 var Pusher = require('pusher-js');
 var Tele = require('tgfancy');
 var fs = require('fs');
@@ -12,7 +10,7 @@ const persen_turun = -15;
 let status_up_down = false;
 
 let koneksi = false;
-const bot = new Tele('key',{
+const bot = new Tele('511096125:AAGRmxudBUBOdVh6YzGg0KLFx3jnpLzqNYU',{
     tgfancy: {
         feature: true,
     }
@@ -25,9 +23,7 @@ const soket = new Pusher('a0dfa181b1248b929b11', {
 });
 
 koneksi = soket.subscribe('tradedata-btcidr');
-koneksi.bind('update', function(data) {
-    CekPerubahanPersentase(data.prices,data.prices_24h,data.volumes);
-});
+
 
 CekPerubahanPersentase = (harga,harga24,volume) => {
     let obj = {
@@ -100,5 +96,9 @@ schedule.scheduleJob('*/5 * * * *', function(){
 
 schedule.scheduleJob('*/3 * * * *', function(){
     status_up_down = false;
+});
+
+koneksi.bind('update', function(data) {
+    CekPerubahanPersentase(data.prices,data.prices_24h,data.volumes);
 });
 
